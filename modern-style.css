@@ -1,0 +1,587 @@
+/* modern-style.css - Исправленная версия */
+:root {
+    --primary: #7c3aed;       /* Фиолетовый */
+    --primary-dark: #6d28d9;  /* Темно-фиолетовый */
+    --primary-light: #8b5cf6; /* Светло-фиолетовый */
+    --secondary: #059669;     /* Зеленый */
+    --accent: #dc2626;        /* Красный */
+    --text: #1f2937;          /* Темно-серый */
+    --text-light: #4b5563;    /* Средний серый */
+    --background: #ffffff;     /* Белый */
+    --background-secondary: #faf5ff; /* Очень светлый фиолетовый */
+    --border: #e9d5ff;        /* Светло-фиолетовый */    
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background);
+}
+
+/* === HEADER & NAVIGATION - ИСПРАВЛЕННЫЙ === */
+.header {
+    background: var(--background);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    gap: 1rem;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 200px; /* Уменьшил размер логотипа */
+    height: 70px; /* Уменьшил высоту */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Навигация - исправленная */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem; /* Уменьшил отступы */
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem; /* Уменьшил паддинг */
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-size: 0.9rem; /* Уменьшил шрифт */
+}
+
+.nav-link:hover {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.nav-link.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+.nav-link.active:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Кнопки авторизации - исправленные */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.btn {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem; /* Уменьшил паддинг */
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: var(--shadow);
+    font-size: 0.9rem; /* Уменьшил шрифт */
+    white-space: nowrap;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+}
+
+/* Dropdown - исправленный */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--background);
+    min-width: 200px; /* Уменьшил ширину */
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius);
+    padding: 0.5rem;
+    z-index: 1000;
+    border: 1px solid var(--border);
+    animation: dropdownFade 0.3s ease;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.6rem 1rem; /* Уменьшил паддинг */
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin: 0.125rem 0;
+    font-size: 0.9rem; /* Уменьшил шрифт */
+}
+
+.dropdown-link:hover {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    transform: translateX(5px);
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+    min-height: calc(100vh - 200px);
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* News grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Уменьшил минимальную ширину */
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.news-card {
+    background: var(--background);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.news-image {
+    width: 100%;
+    height: 180px; /* Уменьшил высоту */
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 1.25rem;
+}
+
+.news-title {
+    font-size: 1.1rem; /* Уменьшил шрифт */
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.news-text {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+.news-link {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.news-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* === FORMS === */
+.form-container {
+    background: var(--background);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem;
+    max-width: 500px; /* Уменьшил максимальную ширину */
+    margin: 2rem auto;
+    border: 1px solid var(--border);
+}
+
+.form-title {
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.5rem; /* Уменьшил шрифт */
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: var(--background);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+/* === TEAM === */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Уменьшил минимальную ширину */
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.team-card {
+    background: var(--background);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.team-image {
+    width: 100%;
+    height: 250px; /* Уменьшил высоту */
+    object-fit: cover;
+}
+
+.team-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 1.5rem 1rem 1rem;
+    text-align: center;
+}
+
+.team-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* === FOOTER === */
+.footer {
+    background: linear-gradient(135deg, #1e293b, #374151);
+    color: white;
+    padding: 2rem 0 1rem;
+    margin-top: 3rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Уменьшил минимальную ширину */
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-section {
+    line-height: 1.6;
+}
+
+.footer-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.footer-link {
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: var(--primary-light);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* === RESPONSIVE - УЛУЧШЕННЫЙ === */
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 0 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .logo img {
+        width: 180px;
+        height: 60px;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .logo img {
+        width: 160px;
+        height: 50px;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0.5rem 0;
+        gap: 0.2rem;
+    }
+    
+    .nav-link {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+    }
+    
+    .auth-buttons {
+        margin-top: 0.5rem;
+    }
+    
+    .btn {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+    }
+    
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-container {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        width: 140px;
+        height: 45px;
+    }
+    
+    .nav-menu {
+        gap: 0.1rem;
+    }
+    
+    .nav-link {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .header-container {
+        padding: 0.25rem;
+    }
+}
+
+/* Исправление белой полосы перед подвалом */
+.main-content {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
+
+.footer {
+    margin-top: 0 !important;
+}
+
+/* Убедимся, что подвал начинается сразу после контента */
+.container:last-child {
+    padding-bottom: 2rem;
+}
+
+/* Исправление выравнивания кнопок в новостных карточках */
+.news-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.news-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+}
+
+.news-text {
+    flex: 1;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.9rem;
+    min-height: 80px; /* Фиксированная минимальная высота текста */
+}
+
+.news-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white !important;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: auto; /* Это заставляет кнопку всегда быть внизу */
+    align-self: flex-start;
+}
+
+.news-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+}
